@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:56 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/23 14:51:37 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/11/23 15:01:06 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,25 @@ void	insert_node_back(t_list **root, int content)
 	currt->next = node;
 }
 
-t_list	*insert_node_front(t_list **root, int content)
+void	insert_node_front(t_list **root, int content)
 {
 	t_list	*node;
 
 	node = create_node(content);
 	if (!*root)
-	{
 		*root = node;
-		return (node);
-	}
 	node->next = *root;
-	return (node);
+	*root = node;
 }
 
 int	main(void)
 {
 	t_list *root;
 
-	// root = create_node(15);
-	// insert_node_back(&root, 56);
-	// insert_node_back(&root, 9);
-	root = insert_node_front(&root, 6);
+	root = create_node(15);
+	insert_node_back(&root, 56);
+	insert_node_back(&root, 9);
+	insert_node_front(&root, 6);
 	// root.next = malloc(sizeof(t_list));
 	// root.next->content = 2;
 	// root.next->next = malloc(sizeof(t_list));

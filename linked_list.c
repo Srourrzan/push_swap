@@ -18,7 +18,11 @@ void insert_node_back(t_list **root, int content)
     t_list *currt;
 
     node = create_node(content);
-
+    if (!*root)
+    {
+        *root = node;
+        return;
+    }
     currt = *root;
     while (currt->next != NULL)
         currt = currt->next;

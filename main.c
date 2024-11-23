@@ -1,5 +1,11 @@
 #include "push_swap.h"
 
+/*
+ * TO DO:
+ * create a function to display the actions taken by the program
+ * create a function to display the stake movements
+*/
+
 int main(int argc, char **argv)
 {
     if (argc == 1)

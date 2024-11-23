@@ -12,11 +12,26 @@ t_list	*create_node(int content)
 	return (node);
 }
 
+void insert_node_back(t_list **root, int content)
+{
+    t_list *node;
+    t_list *currt;
+
+    node = create_node(content);
+
+    currt = *root;
+    while (currt->next != NULL)
+        currt = currt->next;
+    currt->next = node;
+}
+
 int	main(void)
 {
 	t_list *root;
 
 	root = create_node(15);
+    insert_node_back(&root, 56);
+    insert_node_back(&root, 9);
 	// root.next = malloc(sizeof(t_list));
 	// root.next->content = 2;
 	// root.next->next = malloc(sizeof(t_list));
@@ -31,8 +46,8 @@ int	main(void)
 		curr = curr->next;
 	}
 
-	// free(root.next->next);
-	// free(root.next);
+	free(root->next->next);
+	free(root->next);
 	free(root);
 	return (0);
 }

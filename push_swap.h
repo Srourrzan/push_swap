@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/23 14:29:59 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/11/23 14:52:01 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ typedef struct s_list
 
 t_list				*create_node(int content);
 void				insert_node_back(t_list **root, int content);
+t_list				*insert_node_front(t_list **root, int content);
 
 #endif

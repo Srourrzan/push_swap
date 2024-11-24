@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:56 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/24 13:42:16 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/11/24 14:47:33 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,20 @@ void 	delete_node(t_list *node)
 	free(node);
 }
 
+void	delete_list(t_list **root)
+{
+	t_list	*curr = *root;
+	t_list  *pre_node;
+
+	while (curr != NULL)
+	{
+		pre_node = curr;
+		curr = curr->next;
+		delete_node(pre_node);
+	}
+	*root = NULL;
+}
+
 int	main(void)
 {
 	t_list *root;
@@ -65,23 +79,12 @@ int	main(void)
 	insert_node_back(&root, 56);
 	insert_node_back(&root, 9);
 	insert_node_front(&root, 6);
-	// root.next = malloc(sizeof(t_list));
-	// root.next->content = 2;
-	// root.next->next = malloc(sizeof(t_list));
-	// root.next->next->content = 23;
-	// root.next->next->next = NULL;
-
 	t_list *curr = root;
-
 	while (curr != NULL)
 	{
 		printf("Node value: %d\n", curr->content);
 		curr = curr->next;
 	}
-
-	delete_node(root->next->next->next);
-	delete_node(root->next->next);
-	delete_node(root->next);
-	delete_node(root);
+	delete_list(&root);
 	return (0);
 }

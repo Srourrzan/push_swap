@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:56 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/24 14:47:33 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/11/24 14:48:50 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,22 +69,4 @@ void	delete_list(t_list **root)
 		delete_node(pre_node);
 	}
 	*root = NULL;
-}
-
-int	main(void)
-{
-	t_list *root;
-
-	root = create_node(15);
-	insert_node_back(&root, 56);
-	insert_node_back(&root, 9);
-	insert_node_front(&root, 6);
-	t_list *curr = root;
-	while (curr != NULL)
-	{
-		printf("Node value: %d\n", curr->content);
-		curr = curr->next;
-	}
-	delete_list(&root);
-	return (0);
 }

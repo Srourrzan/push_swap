@@ -1,7 +1,7 @@
 # -*- MakeFile -*-
 
 TARGET = push_swap
-SRCS = main.c linked_list.c
+SRCS = main.c linked_list.c str_util.c
 OBJS = $(SRCS:.c=.o)
 
 CC = cc

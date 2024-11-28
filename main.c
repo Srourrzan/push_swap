@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/24 21:43:37 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/11/28 18:23:51 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 int	main(int argc, char **argv)
 {
+	t_list	*stack_a;
+	t_list	*stack_b;
+	
 	printf("Number of args = %d,\nthe name of the program is %s\n", argc, argv[0]);
 	if (argc == 1)
 		return (0);

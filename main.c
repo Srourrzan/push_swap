@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/30 13:52:58 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/11/30 14:29:21 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
  * TO DO:
  * create a function to display the actions taken by the program
  * create a function to display the stake movements
+ * Create a function to fill the stack with input data
+ * 
  */
 
 int	main(int argc, char **argv)
@@ -28,6 +30,7 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = create_node(ft_atoi(argv[1]));
 	stack_b = create_node(5);
+	insert_node_front(&stack_a, 6);
 	ft_display_stacks(&stack_a, &stack_b);
 	/* In case of error,
 		*	it must display "Error" followed by a '\n' on the standard error.

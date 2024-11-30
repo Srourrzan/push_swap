@@ -17,6 +17,11 @@ void    ft_display_stack(t_list **root, char name)
     ft_putchar('\n');
 }
 
+void ft_putchar(char ch)
+{
+    write(1, &ch, 1);
+}
+
 void    ft_putstr(char *src)
 {
     int     iter = 0;

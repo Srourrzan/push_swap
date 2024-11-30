@@ -35,14 +35,20 @@ void    ft_display_stacks(t_list **a, t_list **b)
 
     curr_a = *a;
     curr_b = *b;
-    while(curr_a != NULL && curr_b != NULL)
+    while(curr_a != NULL || curr_b != NULL)
     {
-        ft_putchar(curr_a->content + '0');
+        if (curr_a)
+        {
+            ft_putchar(curr_a->content + '0');
+            curr_a = curr_a->next;
+        }
         ft_putchar(' ');
-        ft_putchar(curr_b->content + '0');
+        if (curr_b)
+        {
+            ft_putchar(curr_b->content + '0');
+            curr_b = curr_b->next;
+        }
         ft_putchar('\n');
-        curr_a = curr_a->next;
-        curr_b = curr_b->next;
     }
     ft_putstr("_ _");
     ft_putchar('\n');

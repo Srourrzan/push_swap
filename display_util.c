@@ -14,4 +14,38 @@ void    ft_display_stack(t_list **root, char name)
     ft_putchar('_');
     ft_putchar('\n');
     ft_putchar(name);
+    ft_putchar('\n');
+}
+
+void    ft_putstr(char *src)
+{
+    int     iter = 0;
+
+    while(src[iter])
+    {
+        ft_putchar(src[iter]);
+        iter++;
+    }
+}
+
+void    ft_display_stacks(t_list **a, t_list **b)
+{
+    t_list  *curr_a;
+    t_list  *curr_b;
+
+    curr_a = *a;
+    curr_b = *b;
+    while(curr_a != NULL && curr_b != NULL)
+    {
+        ft_putchar(curr_a->content + '0');
+        ft_putchar(' ');
+        ft_putchar(curr_b->content + '0');
+        ft_putchar('\n');
+        curr_a = curr_a->next;
+        curr_b = curr_b->next;
+    }
+    ft_putstr("_ _");
+    ft_putchar('\n');
+    ft_putstr("a b");
+    ft_putchar('\n');
 }

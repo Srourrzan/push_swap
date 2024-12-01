@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/30 16:45:48 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/01 18:31:37 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,19 @@
 
 void    ft_fill_stack(t_list **root, char **numbers)
 {
-    
+    int     iter;
+    int     number;
+
+    iter = 1;
+    number = 0;
+    printf("start filling...\n");
+    while(numbers[iter] != NULL)
+    {
+        printf("filling ");
+        number = ft_atoi(numbers[iter]);
+        printf("%d\n", number);
+        insert_node_back(root, number);
+        iter++;
+    }
+    ft_display_stack(root, 'a');
 }

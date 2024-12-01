@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:56 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/24 14:48:50 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/01 18:33:26 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,25 @@ void	insert_node_back(t_list **root, int content)
 	t_list	*node;
 	t_list	*currt;
 
+	printf("creating node...\n");
 	node = create_node(content);
-	if (!*root)
+	if(!node)
+		return ;
+	printf("node created\n");
+	if (*root == NULL)
 	{
+		printf("root is empty, assigning the new node as root.\n");
 		*root = node;
 		return ;
 	}
+	printf("root is defined.\n");
 	currt = *root;
+	printf("curr cont = %d\n", currt->content);
 	while (currt->next != NULL)
+	{
 		currt = currt->next;
+		printf("curr cont = %d\n", currt->content);
+	}
 	currt->next = node;
 }
 
@@ -70,3 +80,11 @@ void	delete_list(t_list **root)
 	}
 	*root = NULL;
 }
+
+// int	main()
+// {
+// 	t_list *root = NULL;
+// 	insert_node_back(&root, 6);
+// 	printf("root cont = %d\n", root->content);
+// 	return(0);
+// }

@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/30 11:30:03 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/11/30 17:25:58 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int ft_atoi(char *src);
 void    ft_display_stack(t_list **root, char name);
 void    ft_putstr(char *src);
 void    ft_display_stacks(t_list **a, t_list **b);
+void    ft_fill_stack(t_list **root, char **numbers);
 
 #endif

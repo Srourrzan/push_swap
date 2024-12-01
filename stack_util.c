@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/01 18:31:37 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/01 19:33:29 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,24 @@ void    ft_fill_stack(t_list **root, char **numbers)
         iter++;
     }
     ft_display_stack(root, 'a');
+}
+/*
+ * sa (swap a): Swap the first 2 elements at the top of stack a.
+ * Do nothing if there is only one or no elements
+ */
+void   sa(t_list **root)
+{
+    t_list *curr;
+    t_list *next;
+    t_list *temp;
+
+    curr = *root;
+    if(curr ==  NULL || curr->next == NULL)
+        return (0);
+    next = curr->next;
+    
+    temp = curr;
+    curr = curr->next;
+    next = temp;
+    
 }

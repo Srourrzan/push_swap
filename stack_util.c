@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/09 19:31:45 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/09 19:44:56 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void    ft_fill_stack(t_list **root, char **numbers)
     ft_display_stack(root, 'a');
 }
 /*
- * sa (swap a): Swap the first 2 elements at the top of stack a.
- * Do nothing if there is only one or no elements
+ * swap function is responsible for doing the following two operations:
+ *  - sa (swap a): Swap the first 2 elements at the top of stack a.
+ *  - sb (swap b): Swap the first 2 elements at the top of stack b.abort
+ *      Do nothing if there is only one or no elements
  */
-void   sa(t_list **root)
+void   swap(t_list **root)
 {
     t_list *curr;
     t_list *next;

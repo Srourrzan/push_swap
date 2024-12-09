@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:49:40 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/09 19:50:08 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/09 19:58:22 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@ void   swap(t_list **root)
     curr->next = next;
     next->next = n_next;
     *root = curr;
+}
+/*
+ *  - ss: sa and sb at the same time
+ */
+void    ss(t_list **root_a, t_list **root_b)
+{
+    swap(root_a);
+    swap(root_b);
 }

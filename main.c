@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/09 19:35:35 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/09 19:57:05 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 	ft_putchar('\n');
 	ft_display_stacks(&stack_a, &stack_b);
 	swap(&stack_a);
+	
 	ft_putchar('\n');
 	ft_display_stacks(&stack_a, &stack_b);
 	/* In case of error,

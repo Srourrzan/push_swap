@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/09 19:57:05 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/09 20:05:18 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int	main(int argc, char **argv)
 	ft_fill_stack(&stack_a, argv);
 	ft_putchar('\n');
 	ft_display_stacks(&stack_a, &stack_b);
-	swap(&stack_a);
-	
 	ft_putchar('\n');
+	ft_putstr("sa\n");
+	swap(&stack_a);
 	ft_display_stacks(&stack_a, &stack_b);
+	ft_putchar('\n');
 	/* In case of error,
 		*	it must display "Error" followed by a '\n' on the standard error.
 		* Errors include for example: some arguments aren't integers,

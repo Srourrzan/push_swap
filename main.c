@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/01 18:34:27 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/09 18:56:09 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	ft_fill_stack(&stack_a, argv);
+	ft_putchar('\n');
+	ft_display_stacks(&stack_a, &stack_b);
+	sa(&stack_a);
+	ft_putchar('\n');
 	ft_display_stacks(&stack_a, &stack_b);
 	/* In case of error,
 		*	it must display "Error" followed by a '\n' on the standard error.

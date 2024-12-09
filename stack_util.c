@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/01 19:33:29 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/09 19:31:45 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,18 @@ void   sa(t_list **root)
 {
     t_list *curr;
     t_list *next;
+    t_list *n_next;
     t_list *temp;
 
     curr = *root;
     if(curr ==  NULL || curr->next == NULL)
-        return (0);
+        return ;
     next = curr->next;
-    
+    n_next = next->next;
     temp = curr;
-    curr = curr->next;
+    curr = next;
     next = temp;
-    
+    curr->next = next;
+    next->next = n_next;
+    *root = curr;
 }

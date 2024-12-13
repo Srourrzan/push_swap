@@ -7,7 +7,7 @@ void    ft_display_stack(t_list **root, char name)
     curr = *root;
     while(curr != NULL)
     {
-        ft_putchar(curr->content + '0');
+        ft_putnbr(curr->content);
         ft_putchar('\n');
         curr = curr->next;
     }
@@ -44,20 +44,20 @@ void    ft_display_stacks(t_list **a, t_list **b)
     {
         if (curr_a)
         {
-            ft_putchar(curr_a->content + '0');
+            ft_putnbr(curr_a->content);
             curr_a = curr_a->next;
         }
-        ft_putchar(' ');
+        ft_putstr("          ");
         if (curr_b)
         {
-            ft_putchar(curr_b->content + '0');
+            ft_putnbr(curr_b->content);
             curr_b = curr_b->next;
         }
         ft_putchar('\n');
     }
-    ft_putstr("_ _");
+    ft_putstr("_          _");
     ft_putchar('\n');
-    ft_putstr("a b");
+    ft_putstr("a          b");
     ft_putchar('\n');
 }
 
@@ -67,6 +67,11 @@ void    ft_putnbr(int  nbr)
 
     if (nbr < 0)
     {
+        if (nbr == -2147483648)
+        {
+            ft_putstr("-2147483648");
+            return;
+        }
         ft_putchar('-');
         nbr *= -1;
     }

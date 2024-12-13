@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/09 20:05:18 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/13 19:33:32 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
+	ft_putnbr(ft_atoi(argv[1]));
+	ft_putchar('\n');
 	ft_fill_stack(&stack_a, argv);
 	ft_putchar('\n');
 	ft_display_stacks(&stack_a, &stack_b);
 	ft_putchar('\n');
-	ft_putstr("sa\n");
+	ft_putstr("sa\n---\n");
 	swap(&stack_a);
 	ft_display_stacks(&stack_a, &stack_b);
 	ft_putchar('\n');

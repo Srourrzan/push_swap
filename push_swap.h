@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/09 19:55:53 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/13 19:30:55 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void 	delete_node(t_list *node);
 void	delete_list(t_list **root);
 void ft_putchar(char ch);
 int ft_atoi(char *src);
+void    ft_putnbr(int  nbr);
 void    ft_display_stack(t_list **root, char name);
 void    ft_putstr(char *src);
 void    ft_display_stacks(t_list **a, t_list **b);

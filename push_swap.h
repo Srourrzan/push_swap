@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/14 10:26:07 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/14 11:46:41 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void    ft_fill_stack(t_list **root, char **numbers);
 void   swap(t_list **root);
 void    ss(t_list **root_a, t_list **root_b);
 void    push(t_list **src_list, t_list **dst_list);
+void    rotate(t_list **root);
 
 #endif

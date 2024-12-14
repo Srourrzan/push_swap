@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/14 11:48:27 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/14 14:35:08 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	main(int argc, char **argv)
 	ft_putstr("ra\n--\n");
 	rotate(&stack_a);
 	ft_display_stack(&stack_a, 'a');
+	delete_list(&stack_a);
+	delete_list(&stack_b);
 	/* In case of error,
 		*	it must display "Error" followed by a '\n' on the standard error.
 		* Errors include for example: some arguments aren't integers,

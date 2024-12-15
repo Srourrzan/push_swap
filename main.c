@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/15 12:29:31 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/15 13:18:50 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	main(int argc, char **argv)
 	push(&stack_a, &stack_b);
 	ft_display_stacks(&stack_a, &stack_b);
 	ft_putchar('\n');
-	ft_putstr("rra\n--\n");
-	reverse_rotate(&stack_a);
-	ft_display_stack(&stack_a, 'a');
+	ft_putstr("rrr\n--\n");
+	rrr(&stack_a, &stack_b);
+	ft_display_stacks(&stack_a, &stack_b);
 	delete_list(&stack_a);
 	delete_list(&stack_b);
 	/* In case of error,

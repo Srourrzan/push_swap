@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 11:35:36 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/15 12:35:03 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/15 13:20:07 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,12 @@ void	reverse_rotate(t_list **root)
 	curr->next = NULL;
 	next_to_curr->next = *root;
 	*root = next_to_curr;
+}
+
+/* rrr: rra and rrb at the same time */
+
+void	rrr(t_list **root_a, t_list **root_b)
+{
+	reverse_rotate(root_a);
+	reverse_rotate(root_b);
 }

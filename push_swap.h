@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/15 12:49:31 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/15 13:14:37 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void				rotate(t_list **root);
 void				rr(t_list **root_a, t_list **root_b);
 void				reverse_rotate(t_list **root);
 int					ft_atoi(char *src);
+void				rrr(t_list **root_a, t_list **root_b);
 
 #endif

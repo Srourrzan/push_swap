@@ -14,7 +14,7 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
 
 %.o: %.c %.h
-	$(CC) $(CFLAGS) -c %< $@  
+	$(CC) $(CFLAGS) -c $< $@  
 
 re: fclean all
 

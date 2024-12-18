@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/15 13:18:50 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/18 20:02:57 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /*
  * TO DO:
- * create a function to display the actions taken by the program
+ * create a function to display the actions taken by the program (DONE)
  * create a function to display the stake movements
- * Create a function to fill the stack with input data
+ * Create a function to fill the stack with input data (DONE)
  * 
  */
 
@@ -30,18 +30,19 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	ft_fill_stack(&stack_a, argv);
-	ft_putchar('\n');
-	ft_display_stacks(&stack_a, &stack_b);
-	ft_putchar('\n');
-	ft_putstr("pb 3 times\n---\n");
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
-	ft_display_stacks(&stack_a, &stack_b);
-	ft_putchar('\n');
-	ft_putstr("rrr\n--\n");
-	rrr(&stack_a, &stack_b);
-	ft_display_stacks(&stack_a, &stack_b);
+	t_list	*curr;
+	curr = stack_a;
+	while (curr  && (curr->next != NULL))
+	{
+		if((curr->content > curr->next->content))
+		{
+			printf("\nsa:\n-----\n");
+			swap(&stack_a);
+			ft_display_stack(&stack_a, 'a');
+		}
+		curr = curr->next;
+	}
+	ft_display_stack(&stack_a, 'a');
 	delete_list(&stack_a);
 	delete_list(&stack_b);
 	/* In case of error,

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/18 20:02:57 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/19 11:33:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,10 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	ft_fill_stack(&stack_a, argv);
-	t_list	*curr;
-	curr = stack_a;
-	while (curr  && (curr->next != NULL))
+	if(((stack_a->content) > (stack_a->next->content)))
 	{
-		if((curr->content > curr->next->content))
-		{
-			printf("\nsa:\n-----\n");
-			swap(&stack_a);
-			ft_display_stack(&stack_a, 'a');
-		}
-		curr = curr->next;
+		printf("\nsa:\n-----\n");
+		swap(&stack_a);
 	}
 	ft_display_stack(&stack_a, 'a');
 	delete_list(&stack_a);

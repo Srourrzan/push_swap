@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/19 13:53:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/12/19 14:04:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int	main(int argc, char **argv)
 	printf("\npb\n-----\n");
 	push(&stack_a, &stack_b);
 	ft_display_stacks(&stack_a, &stack_b);
-	printf("\nss:\n------\n");
-		if(((stack_a->content) > (stack_a->next->content)))
+	if(((stack_a->content) > (stack_a->next->content)))
 	{
 		printf("\nsa:\n-----\n");
 		swap(&stack_a);
@@ -49,6 +48,13 @@ int	main(int argc, char **argv)
 	printf("\npb\n-----\n");
 	push(&stack_a, &stack_b);
 	ft_display_stacks(&stack_a, &stack_b);
+	// the condition to implementn sb (swap b) is to check if the first element is less than the second element
+	if(((stack_b->content) < (stack_b->next->content)))
+	{
+		printf("\nsb:\n-----");
+		swap(&stack_b);
+		ft_display_stacks(&stack_a, &stack_b);
+	}
 	delete_list(&stack_a);
 	delete_list(&stack_b);
 	/* In case of error,

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/19 11:33:27 by codespace        ###   ########.fr       */
+/*   Updated: 2024/12/19 13:49:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int	main(int argc, char **argv)
 		swap(&stack_a);
 	}
 	ft_display_stack(&stack_a, 'a');
+	printf("\npb\n-----\n");
+	push(&stack_a, &stack_b);
+	ft_display_stacks(&stack_a, &stack_b);
 	delete_list(&stack_a);
 	delete_list(&stack_b);
 	/* In case of error,

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/19 14:04:20 by codespace        ###   ########.fr       */
+/*   Updated: 2024/12/19 14:15:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
  * create a function to display the actions taken by the program (DONE)
  * create a function to display the stake movements
  * Create a function to fill the stack with input data (DONE)
- * 
+ * Add a value check to check if the entered value is a number or not.
+ * Add a duplicate checker to check if their are any duplicated values.
  */
 
 int	main(int argc, char **argv)

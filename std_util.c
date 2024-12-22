@@ -6,13 +6,13 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:35:41 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/22 20:02:17 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/22 20:20:35 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_atoi(char *src)
+int ft_atoi(char *src, t_list **root)
 {
     int     iter;
     int     number;
@@ -36,6 +36,7 @@ int ft_atoi(char *src)
                 || number >= 214748365)
             {
                 ft_putstr("Error\n");
+                delete_list(root);
                 exit (2);
             }
             number = (number * 10) + (src[iter] - '0');

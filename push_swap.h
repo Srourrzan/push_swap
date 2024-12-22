@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/22 17:05:13 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/22 20:20:54 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void				push(t_list **src_list, t_list **dst_list);
 void				rotate(t_list **root);
 void				rr(t_list **root_a, t_list **root_b);
 void				reverse_rotate(t_list **root);
-int					ft_atoi(char *src);
+int					ft_atoi(char *src, t_list **root);
 void				rrr(t_list **root_a, t_list **root_b);
 int     ft_is_number(char *src);
 

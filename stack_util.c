@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/14 10:21:05 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/22 18:01:19 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,31 @@ void    ft_fill_stack(t_list **root, char **numbers)
     number = 0;
     while(numbers[iter] != NULL)
     {
-        number = ft_atoi(numbers[iter]);
-        insert_node_back(root, number);
+        if (ft_is_number(numbers[iter]))
+        {
+            number = ft_atoi(numbers[iter]);
+            insert_node_back(root, number);
+        }
+        else 
+        {
+            ft_putstr("Error\n");
+		    exit (1);
+        }
         iter++;
     }
     ft_display_stack(root, 'a');
+}
+
+int     ft_is_number(char *src)
+{
+    int     iter;
+
+    iter = 0;
+    while(src[iter])
+    {
+        if (src [iter] < '0' || src[iter] > '9')
+            return (0);
+        iter++;
+    }
+    return (1);
 }

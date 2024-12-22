@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/22 20:21:05 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/22 20:33:16 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,7 @@ void    ft_fill_stack(t_list **root, char **numbers)
             insert_node_back(root, number);
         }
         else 
-        {
-            ft_putstr("Error\n");
-            delete_list(root);
-		    exit (1);
-        }
+            ft_exit(root, 1);
         iter++;
     }
     ft_display_stack(root, 'a');

@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/22 18:01:19 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/22 19:51:40 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int     ft_is_number(char *src)
     int     iter;
 
     iter = 0;
+    if (src[iter] == '+' || src[iter] == '-')
+        iter++;
     while(src[iter])
     {
         if (src [iter] < '0' || src[iter] > '9')

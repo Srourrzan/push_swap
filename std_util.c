@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:35:41 by rsrour            #+#    #+#             */
-/*   Updated: 2024/11/28 20:03:22 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/22 20:02:17 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ int ft_atoi(char *src)
     {
         if(src[iter] >= '0' && src[iter] <= '9')
         {
+            if ((number * 10 == 2147483640 && (((src[iter] - '0') > 7 && sign == 1) 
+                || ((src[iter] - '0') > 8 && sign == -1))) 
+                || number >= 214748365)
+            {
+                ft_putstr("Error\n");
+                exit (2);
+            }
             number = (number * 10) + (src[iter] - '0');
         }
         else

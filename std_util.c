@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:35:41 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/22 20:32:02 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/27 23:36:05 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,30 @@ void    ft_exit(t_list **root, int exit_number)
     ft_putstr("Error\n");
     delete_list(root);
     exit(exit_number);
+}
+
+void    ft_bzero(void *src, size_t n)
+{
+    size_t  iter;
+    
+    iter = 0;
+    while (iter < n)
+    {
+        ((unsigned char *)src)[iter] = '1';
+        iter++;
+    }
+    ((unsigned char *)src)[iter] = '\0';
+}
+
+int main()
+{
+    char *src;
+
+    src = malloc(sizeof(char *)*5);
+    if(!src)
+        return(1);
+    ft_bzero(src, 5);
+    printf("%s\n", src);
+    free(src);
+    return (0);
 }

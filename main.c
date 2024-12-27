@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/22 17:37:19 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/24 00:16:21 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 //	stack_b = NULL;
 	if (argc == 1)
 		return (0);
-	ft_fill_stack(&stack_a, argv);
+	ft_fill_stack(&stack_a, argv, argc);
 /*	if(((stack_a->content) > (stack_a->next->content)))
 	{
 		printf("\nsa:\n-----\n");
@@ -55,9 +55,9 @@ int	main(int argc, char **argv)
 		printf("\nsb:\n-----");
 		swap(&stack_b);
 		//ft_display_stacks(&stack_a, &stack_b);
-	}
+	}*/
 	delete_list(&stack_a);
-	delete_list(&stack_b);*/
+	//delete_list(&stack_b);
 	/* In case of error,
 		*	it must display "Error" followed by a '\n' on the standard error.
 		* Errors include for example: some arguments aren't integers,

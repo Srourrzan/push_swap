@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:35:41 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/28 20:00:25 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/28 20:05:35 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int ft_atoi(char *src, t_list **root, char **dup_num)
     {
         if ((number * 10 == 2147483640 && (((src[iter] - '0') > 7 && sign == 1) 
             || ((src[iter] - '0') > 8 && sign == -1))) || number >= 214748365)
-        {
-            ft_free_str_array(dup_num);
-            ft_exit(root, 2);
-        }
+            ft_exit(root, dup_num, 2);
         number = (number * 10) + (src[iter] - '0');
         iter++; 
     }
@@ -42,11 +39,28 @@ int ft_atoi(char *src, t_list **root, char **dup_num)
     return (number);
 }
 
-void    ft_exit(t_list **root, int exit_number)
+void    ft_exit(t_list **root, char **arr, int exit_number)
 {   
     ft_putstr("Error\n");
     delete_list(root);
+    if(arr)
+        ft_free_str_array(arr);
     exit(exit_number);
+}
+
+void    ft_free_str_array(char **arr)
+{
+    int i;
+
+    if (!arr)
+        return;
+    i = 0;
+    while (arr[i])
+    {
+        free(arr[i]);
+        i++;
+    }
+    free(arr);
 }
 
 void    ft_init_array(char **src, int size)

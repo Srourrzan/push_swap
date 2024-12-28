@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/28 19:54:05 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/28 20:06:03 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void    ft_fill_stack(t_list **root, char **numbers, int argc)
     dup_iter = 0;
     dup_num = malloc(sizeof(char *) * (argc + 1));
     if (!dup_num)
-        ft_exit(root, 3);
+        ft_exit(root, NULL, 3);
     ft_init_array(dup_num, argc + 1);
     while(numbers[iter] != NULL)
     {
@@ -39,39 +39,18 @@ void    ft_fill_stack(t_list **root, char **numbers, int argc)
         {
             dup_num[dup_iter] = strdup(numbers[iter]);
             if (!dup_num[dup_iter])
-            {
-                ft_free_str_array(dup_num);
-                ft_exit(root, 3);
-            }
+                ft_exit(root, dup_num, 3);
             dup_iter++;
             number = ft_atoi(numbers[iter++], root, dup_num);
             insert_node_back(root, number);
         }
         else
-        {
-            ft_free_str_array(dup_num);
-            ft_exit(root, 1);
-        }
+            ft_exit(root, dup_num, 1);
     }
     ft_free_str_array(dup_num);
     ft_display_stack(root, 'a');
 }
 
-// Add this helper function to free string array
-void    ft_free_str_array(char **arr)
-{
-    int i;
-
-    if (!arr)
-        return;
-    i = 0;
-    while (arr[i])
-    {
-        free(arr[i]);
-        i++;
-    }
-    free(arr);
-}
 
 int     ft_is_dup(char **dup_num, char *number)
 {

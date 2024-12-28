@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:35:41 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/28 19:53:07 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/28 20:00:25 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,6 @@ void    ft_exit(t_list **root, int exit_number)
     ft_putstr("Error\n");
     delete_list(root);
     exit(exit_number);
-}
-
-void    ft_bzero(char **src, size_t n)
-{
-    size_t  iter;
-    
-    iter = 0;
-    while (iter < n)
-    {
-        src[iter] = "1";
-        iter++;
-    }
-    ((unsigned char *)src)[iter] = '\0';
 }
 
 void    ft_init_array(char **src, int size)

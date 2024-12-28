@@ -6,14 +6,13 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/24 00:30:43 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/28 19:53:33 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> //remove it
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -40,13 +39,14 @@ void				push(t_list **src_list, t_list **dst_list);
 void				rotate(t_list **root);
 void				rr(t_list **root_a, t_list **root_b);
 void				reverse_rotate(t_list **root);
-int					ft_atoi(char *src, t_list **root);
+int					ft_atoi(char *src, t_list **root, char **dup_num);
 void				rrr(t_list **root_a, t_list **root_b);
-int     ft_is_number(char *src);
-int     ft_is_dup(char **dup_num, char *number);
-void    ft_exit(t_list **root, int exit_number);
-int		len_list(t_list **root);
-int     ft_strcmp(const char *s1, const char *s2);
-void    ft_bzero(void *src, size_t n);
+int     			ft_is_number(char *src);
+int     			ft_is_dup(char **dup_num, char *number);
+void    			ft_exit(t_list **root, int exit_number);
+int					len_list(t_list **root);
+int     			ft_strcmp(const char *s1, const char *s2);
+void    ft_init_array(char **src, int size);
+void    			ft_free_str_array(char **arr);
 
 #endif

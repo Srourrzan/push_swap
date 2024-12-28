@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:56 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/22 20:58:41 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/28 15:25:58 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		len_list(t_list **root)
 	int		len;
 	t_list		*curr;
 
+	len = 0;
 	if (!root || !(*root))
 		return (0);
 	curr = *root;

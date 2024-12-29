@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 10:14:19 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/14 10:14:56 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/29 21:02:45 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,29 @@ void	ft_display_stacks(t_list **a, t_list **b)
 {
 	t_list	*curr_a;
 	t_list	*curr_b;
+	t_list	*temp;
 
 	curr_a = *a;
 	curr_b = *b;
+	temp = curr_a;
 	while (curr_a != NULL || curr_b != NULL)
 	{
 		if (curr_a)
 		{
 			ft_putnbr(curr_a->content);
+			temp = curr_a;
 			curr_a = curr_a->next;
 		}
-		ft_putstr("          ");
+		ft_correct_space_display(temp->content);
 		if (curr_b)
 		{
 			ft_putnbr(curr_b->content);
 			curr_b = curr_b->next;
 		}
-		ft_putchar('\n');
+		ft_putstr("\n");
 	}
-	ft_putstr("_          _");
-	ft_putchar('\n');
-	ft_putstr("a          b");
-	ft_putchar('\n');
+	ft_putstr("___________   ___________\n");
+	ft_putstr("a             b\n");
 }
 
 void	ft_putnbr(int nbr)
@@ -92,4 +93,28 @@ void	ft_putnbr(int nbr)
 		ft_putnbr(nbr / 10);
 	res = nbr % 10 + '0';
 	ft_putchar(res);
+}
+
+void	ft_correct_space_display(int	number)
+{
+	int		len;
+	int		iter;
+	
+	len = 0;
+	iter = 0;
+	if (number < 0)
+	{
+		number = number * -1;
+		len++;
+	}
+	while (number > 0)
+	{
+		number /= 10;
+		len++;
+	}
+	while (iter < (13 - len))
+	{
+		ft_putstr(" ");
+		iter++;
+	}
 }

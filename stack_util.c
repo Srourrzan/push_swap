@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/28 20:06:03 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/29 13:54:44 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ void    ft_fill_stack(t_list **root, char **numbers, int argc)
     {
         if (ft_is_number(numbers[iter]) && !ft_is_dup(dup_num, numbers[iter]))
         {
-            dup_num[dup_iter] = strdup(numbers[iter]);
-            if (!dup_num[dup_iter])
-                ft_exit(root, dup_num, 3);
-            dup_iter++;
+            dup_num[dup_iter++] = strdup(numbers[iter]);
             number = ft_atoi(numbers[iter++], root, dup_num);
             insert_node_back(root, number);
         }

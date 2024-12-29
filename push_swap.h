@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/28 20:04:41 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/29 14:34:05 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int     			ft_is_dup(char **dup_num, char *number);
 void    ft_exit(t_list **root, char **arr, int exit_number);
 int					len_list(t_list **root);
 int     			ft_strcmp(const char *s1, const char *s2);
+char    *ft_strdup(const char *s);
+int     ft_strlen(const char *s);
 void    ft_init_array(char **src, int size);
 void    			ft_free_str_array(char **arr);
 

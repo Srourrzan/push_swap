@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/29 14:34:05 by rsrour           ###   ########.fr       */
+/*   Updated: 2024/12/30 17:39:22 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -50,5 +51,6 @@ char    *ft_strdup(const char *s);
 int     ft_strlen(const char *s);
 void    ft_init_array(char **src, int size);
 void    			ft_free_str_array(char **arr);
+int					ft_sort_check(t_list  **a);
 
 #endif

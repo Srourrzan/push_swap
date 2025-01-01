@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/01 17:20:50 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/01 17:26:52 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,4 @@ int	main(int argc, char **argv)
 		* than an integer and/or there are duplicates.
 		*/
 	return (0);
-}
-
-void	sort_list(t_list **a, t_list **b)
-{
-	if((*a)->content > (*a)->next->content)
-	{
-		swap(a);
-		ft_putstr("\nsa\n");
-		ft_display_stacks(a, b);
-	}
-	push(a, b);
-	ft_putstr("\npa\n");
-	ft_display_stacks(a, b);
-	if ((*b)->next != NULL)
-	{
-		if((*b)->content < (*b)->next->content)
-		{
-			swap(b);
-			ft_putstr("\nsb\n");
-			ft_display_stacks(a, b);
-		}
-	}
 }

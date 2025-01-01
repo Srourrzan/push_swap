@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/30 20:05:57 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/01 17:20:50 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,18 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	int			iter = 0;
+	//int			iter = 0;
 	
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
 	ft_fill_stack(&stack_a, argv, argc);
-	printf("Is stack sorted? %d\n", ft_sort_check(&stack_a));
+	printf("Is stack sorted in ascending? %d\n", ft_ascend_check(&stack_a));
 	if (argc > 2)
 	{
-		while (!ft_sort_check(&stack_a) && iter < 4)
-		{
+		while (!ft_ascend_check(&stack_a))
 			sort_list(&stack_a, &stack_b);
-			iter++;
-		}
 	}
 	delete_list(&stack_a);
 	delete_list(&stack_b);
@@ -54,13 +51,7 @@ int	main(int argc, char **argv)
 
 void	sort_list(t_list **a, t_list **b)
 {
-	t_list	*curr_a;
-	t_list	*curr_b;
-	t_list	*prev_b;
-
-	curr_a = *a;
-	curr_b = *b;
-	if(curr_a->content > curr_a->next->content)
+	if((*a)->content > (*a)->next->content)
 	{
 		swap(a);
 		ft_putstr("\nsa\n");
@@ -69,14 +60,13 @@ void	sort_list(t_list **a, t_list **b)
 	push(a, b);
 	ft_putstr("\npa\n");
 	ft_display_stacks(a, b);
-	if (curr_b->next != NULL)
+	if ((*b)->next != NULL)
 	{
-		if(curr_b->content < curr_b->next->content)
+		if((*b)->content < (*b)->next->content)
 		{
 			swap(b);
 			ft_putstr("\nsb\n");
 			ft_display_stacks(a, b);
 		}
 	}
-
 }

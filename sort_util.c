@@ -6,74 +6,84 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:38:22 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/01 18:55:13 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/01 19:13:15 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_list(t_list **a, t_list **b)
+int	ft_sort_list(t_list **a, t_list **b, int counter)
 {
 	while (!ft_ascend_check(a))
 	{
 		while (!ft_ascend_check(a))
-			ft_sort_list_ascend(a, b);
+			counter = ft_sort_list_ascend(a, b, counter);
 		while (!ft_descend_check(b))
-			ft_sort_list_descend(b, a);
+			counter = ft_sort_list_descend(b, a, counter);
 	}
 	if(ft_ascend_check(a) && ft_descend_check(b))
 	{
 		while ((*b) != NULL)
 		{
 			push(b, a);
-			ft_putstr("\npa\n");
-			ft_display_stacks(a, b);
+			ft_putstr("pa\n");
+			counter++;
+			//ft_display_stacks(a, b);
 		}
 	}
+	return counter;
 }
 
-void	ft_sort_list_ascend(t_list **a, t_list **b)
+int	ft_sort_list_ascend(t_list **a, t_list **b, int counter)
 {
 	if((*a)->content > (*a)->next->content)
 	{
 		swap(a);
-		ft_putstr("\nsa\n");
-		ft_display_stacks(a, b);
+		ft_putstr("sa\n");
+		counter++;
+		//ft_display_stacks(a, b);
 	}
 	push(a, b);
-	ft_putstr("\npa\n");
-	ft_display_stacks(a, b);
+	ft_putstr("pa\n");
+	counter++;
+	//ft_display_stacks(a, b);
 	if ((*b)->next != NULL)
 	{
 		if((*b)->content < (*b)->next->content)
 		{
 			swap(b);
-			ft_putstr("\nsb\n");
-			ft_display_stacks(a, b);
+			ft_putstr("sb\n");
+			counter++;
+			//ft_display_stacks(a, b);
 		}
 	}
+	return counter++;
 }
 
-void	ft_sort_list_descend(t_list **b, t_list **a)
+int	ft_sort_list_descend(t_list **b, t_list **a, int counter)
 {
 	if((*b)->content < (*b)->next->content)
 	{
 		swap(b);
-		ft_putstr("\nsb\n");
-		ft_display_stacks(a, b);
+		ft_putstr("sb\n");
+		counter++;
+		//ft_display_stacks(a, b);
 	}
 	push(b, a);
-	ft_putstr("\npb\n");
-	ft_display_stacks(a, b);
+	ft_putstr("pb\n");
+	counter++;
+	//ft_display_stacks(a, b);
 	if ((*a)->next != NULL)
 	{
 		if((*a)->content > (*a)->next->content)
 		{
 			swap(a);
-			ft_putstr("\nsa\n");
-			ft_display_stacks(a, b);
+			ft_putstr("sa\n");
+			counter++;
+			//ft_display_stacks(a, b);
 		}
 	}
+	return counter;
 }
 
 int	ft_ascend_check(t_list **a)

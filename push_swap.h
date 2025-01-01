@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/01 17:20:12 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/01 17:42:16 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int     ft_strlen(const char *s);
 void    ft_init_array(char **src, int size);
 void    			ft_free_str_array(char **arr);
 int					ft_ascend_check(t_list  **a);
-void				sort_list(t_list **a, t_list **b);
+int					ft_descend_check(t_list **b);
+void				ft_sort_list_ascend(t_list **a, t_list **b);
+void				ft_sort_list_descend(t_list **b, t_list **a);
 
 #endif

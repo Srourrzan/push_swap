@@ -6,11 +6,31 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:38:22 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/01 17:41:56 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/01 18:55:13 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_sort_list(t_list **a, t_list **b)
+{
+	while (!ft_ascend_check(a))
+	{
+		while (!ft_ascend_check(a))
+			ft_sort_list_ascend(a, b);
+		while (!ft_descend_check(b))
+			ft_sort_list_descend(b, a);
+	}
+	if(ft_ascend_check(a) && ft_descend_check(b))
+	{
+		while ((*b) != NULL)
+		{
+			push(b, a);
+			ft_putstr("\npa\n");
+			ft_display_stacks(a, b);
+		}
+	}
+}
 
 void	ft_sort_list_ascend(t_list **a, t_list **b)
 {

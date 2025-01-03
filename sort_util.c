@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:38:22 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/03 20:05:20 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/03 22:38:04 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_sort_list(t_list **a, t_list **b, int counter)
 {
+	if(ft_ascend_check(a))
+		return counter;
 	while (!ft_ascend_check(a))
 	{
 		while (!ft_ascend_check(a))
@@ -28,7 +30,7 @@ int	ft_sort_list(t_list **a, t_list **b, int counter)
 			push(b, a);
 			ft_putstr("pa\n");
 			counter++;
-			ft_display_stacks(a, b);
+			//ft_display_stacks(a, b);
 		}
 	}
 	return counter;
@@ -47,39 +49,56 @@ int	ft_sort_list_ascend(t_list **a, t_list **b, int counter)
 					ss(a, b);
 					ft_putstr("ss\n");
 					counter++;
-					ft_display_stacks(a, b);
+					//ft_display_stacks(a, b);
+				}
+				else
+				{
+					swap(a);
+					ft_putstr("sa\n");
+					counter++;
+					//ft_display_stacks(a, b);
 				}
 			}
-			else
-			{
-				swap(a);
-				ft_putstr("sa\n");
-				counter++;
-				ft_display_stacks(a, b);
-			}
+		}
+		else
+		{
+			swap(a);
+			ft_putstr("sa\n");
+			counter++;
+			//ft_display_stacks(a, b);
 		}	
 	}
 	push(a, b);
 	ft_putstr("pa\n");
 	counter++;
-	ft_display_stacks(a, b);
+	//ft_display_stacks(a, b);
 	if ((*b)->next != NULL)
 	{
 		if((*b)->content < (*b)->next->content)
 		{
-			if((*a)->content > (*a)->next->content)
+			if((*a)->next != NULL)
 			{
-				ss(a, b);
-				ft_putstr("ss\n");
-				counter++;
-				ft_display_stacks(a, b);
+				if((*a)->content > (*a)->next->content)
+				{
+					ss(a, b);
+					ft_putstr("\nss\n");
+					counter++;
+					//ft_display_stacks(a, b);
+				}
+				else
+				{
+					swap(b);
+					ft_putstr("sb\n");
+					counter++;
+					//ft_display_stacks(a, b);
+				}
 			}
 			else
 			{
 				swap(b);
 				ft_putstr("sb\n");
 				counter++;
-				ft_display_stacks(a, b);
+				//ft_display_stacks(a, b);
 			}
 		}
 	}
@@ -97,7 +116,14 @@ int	ft_sort_list_descend(t_list **b, t_list **a, int counter)
 				ss(a, b);
 				ft_putstr("ss\n");
 				counter++;
-				ft_display_stacks(a, b);
+				//ft_display_stacks(a, b);
+			}
+			else
+			{
+				swap(b);
+				ft_putstr("sb\n");
+				counter++;
+				//ft_display_stacks(a, b);
 			}
 		}
 		else
@@ -105,13 +131,13 @@ int	ft_sort_list_descend(t_list **b, t_list **a, int counter)
 			swap(b);
 			ft_putstr("sb\n");
 			counter++;
-			ft_display_stacks(a, b);
+			//ft_display_stacks(a, b);
 		}
 	}
 	push(b, a);
 	ft_putstr("pb\n");
 	counter++;
-	ft_display_stacks(a, b);
+	//ft_display_stacks(a, b);
 	if ((*a)->next != NULL)
 	{
 		if((*a)->content > (*a)->next->content)
@@ -121,14 +147,14 @@ int	ft_sort_list_descend(t_list **b, t_list **a, int counter)
 				ss(a, b);
 				ft_putstr("ss\n");
 				counter++;
-				ft_display_stacks(a, b);
+				//ft_display_stacks(a, b);
 			}
 			else
 			{
 				swap(a);
 				ft_putstr("sa\n");
 				counter++;
-				ft_display_stacks(a, b);
+				//ft_display_stacks(a, b);
 			}
 		}
 	}

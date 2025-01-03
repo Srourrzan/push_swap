@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/03 20:13:19 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/03 20:16:49 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,4 @@ int	main(int argc, char **argv)
 	delete_list(&stack_a);
 	delete_list(&stack_b);
 	return (0);
-}
-
-void	ft_sort_list(t_list **a, t_list **b)
-{
-	t_list	*curr;
-	int	i = 0;
-
-	curr = *a;
-	while(i++ < 4) //what is the best condition?
-	{
-		if(curr->content > curr->next->content)
-			swap(a);
-		push(a, b);
-		if(curr->content < curr->next->content)
-			push(a, b);
-		ft_display_stacks(a, b);
-	}	// should we iterate through b after finishing with a, or should it be simullitansly.
-	//ft_display_stacks(a, b);
 }

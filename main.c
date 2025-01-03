@@ -6,40 +6,28 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/29 21:18:37 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/03 20:13:19 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
- * TO DO:
- * create a function to display the actions taken by the program (DONE)
- * create a function to display the stake movements
- * Create a function to fill the stack with input data (DONE)
- * Add a value check to check if the entered value is a number or not.
- * Add a duplicate checker to check if their are any duplicated values.
- */
-
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	int		counter;
 	
+	counter = 0;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
 	ft_fill_stack(&stack_a, argv, argc);
-	ft_sort_list(&stack_a, &stack_b);
+	counter = ft_sort_list(&stack_a, &stack_b, counter);
+	printf("number of ops: %d\n", counter);
 	delete_list(&stack_a);
 	delete_list(&stack_b);
-	/* In case of error,
-		*	it must display "Error" followed by a '\n' on the standard error.
-		* Errors include for example: some arguments aren't integers,
-		*	some arguments are bigger
-		* than an integer and/or there are duplicates.
-		*/
 	return (0);
 }
 

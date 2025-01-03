@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/03 20:14:01 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/03 20:38:13 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void				ft_putnbr(int nbr);
 void				ft_display_stack(t_list **root, char name);
 void				ft_putstr(char *src);
 void				ft_display_stacks(t_list **a, t_list **b);
-void				ft_correct_space_display(int	number);
+void				ft_correct_space_display(t_list *node);
 void				ft_fill_stack(t_list **root, char **numbers, int argc);
 void				swap(t_list **root);
 void				ss(t_list **root_a, t_list **root_b);

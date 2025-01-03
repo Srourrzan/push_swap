@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 10:14:19 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/29 21:02:45 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/03 20:38:44 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_display_stacks(t_list **a, t_list **b)
 			temp = curr_a;
 			curr_a = curr_a->next;
 		}
-		ft_correct_space_display(temp->content);
+		ft_correct_space_display(temp);
 		if (curr_b)
 		{
 			ft_putnbr(curr_b->content);
@@ -95,22 +95,29 @@ void	ft_putnbr(int nbr)
 	ft_putchar(res);
 }
 
-void	ft_correct_space_display(int	number)
+void	ft_correct_space_display(t_list *node)
 {
 	int		len;
 	int		iter;
+	static int		snumber;
+	int		number;
 	
 	len = 0;
 	iter = 0;
-	if (number < 0)
+	number = node->content;
+	if (snumber != node->content || (node->next != NULL))
 	{
-		number = number * -1;
-		len++;
-	}
-	while (number > 0)
-	{
-		number /= 10;
-		len++;
+		snumber = number;
+		if (number < 0)
+		{
+			number = number * -1;
+			len++;
+		}
+		while (number > 0)
+		{
+			number /= 10;
+			len++;
+		}
 	}
 	while (iter < (13 - len))
 	{

@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/04 15:01:55 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/04 15:16:58 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	int	fd = open("output.txt", O_WRONLY);
-	int	fd_t = open("trials.txt", O_APPEND);
+	int	fd_t = open("trials.txt", O_WRONLY | O_APPEND);
 	if (fd > 0)
 	{
 		ft_fill_stack(&stack_a, argv, argc, fd);
@@ -37,11 +37,12 @@ int	main(int argc, char **argv)
 	{
 		ft_putstr("number of argc: ", fd_t);
 		ft_putnbr(argc-1, fd_t);
-		ft_putstr("number of operations: ", fd_t);
+		ft_putstr(" number of operations: ", fd_t);
 		ft_putnbr(counter, fd_t);
 		ft_putstr("\n", fd_t);
 	}
 	close(fd);
+	close(fd_t);
 	delete_list(&stack_a);
 	delete_list(&stack_b);
 	return (0);

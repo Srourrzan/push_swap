@@ -14,6 +14,7 @@ all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+	touch output.txt trials.txt
 
 test:
 	@echo $(OBJS)

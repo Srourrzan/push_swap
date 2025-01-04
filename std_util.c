@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:35:41 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/28 20:05:35 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:42:03 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int ft_atoi(char *src, t_list **root, char **dup_num)
 
 void    ft_exit(t_list **root, char **arr, int exit_number)
 {   
-    ft_putstr("Error\n");
+    ft_putstr("Error\n", 2);
     delete_list(root);
     if(arr)
         ft_free_str_array(arr);

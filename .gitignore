@@ -4,3 +4,4 @@ push_swap
 parallel.c
 lim.c
 *.md
+*.txt

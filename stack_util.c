@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 15:49:02 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/29 14:34:40 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/04 14:43:43 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include "push_swap.h"
 
-void    ft_fill_stack(t_list **root, char **numbers, int argc)
+void    ft_fill_stack(t_list **root, char **numbers, int argc, int fd)
 {
     int     iter;
     int     number;
@@ -44,7 +44,7 @@ void    ft_fill_stack(t_list **root, char **numbers, int argc)
             ft_exit(root, dup_num, 1);
     }
     ft_free_str_array(dup_num);
-    ft_display_stack(root, 'a');
+    ft_display_stack(root, 'a', fd);
 }
 
 

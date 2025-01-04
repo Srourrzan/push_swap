@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/03 20:16:49 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/04 15:01:55 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,25 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
-	ft_fill_stack(&stack_a, argv, argc);
-	counter = ft_sort_list(&stack_a, &stack_b, counter);
-	printf("number of ops: %d\n", counter);
+	int	fd = open("output.txt", O_WRONLY);
+	int	fd_t = open("trials.txt", O_APPEND);
+	if (fd > 0)
+	{
+		ft_fill_stack(&stack_a, argv, argc, fd);
+		counter = ft_sort_list(&stack_a, &stack_b, counter, fd);
+		printf("number of ops: %d\n", counter);
+	}
+	else
+		printf("failed: file descriptor: %d\n", fd);
+	if (fd_t)
+	{
+		ft_putstr("number of argc: ", fd_t);
+		ft_putnbr(argc-1, fd_t);
+		ft_putstr("number of operations: ", fd_t);
+		ft_putnbr(counter, fd_t);
+		ft_putstr("\n", fd_t);
+	}
+	close(fd);
 	delete_list(&stack_a);
 	delete_list(&stack_b);
 	return (0);

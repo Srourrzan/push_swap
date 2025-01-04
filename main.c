@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/04 15:16:58 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/04 16:06:49 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
-	int	fd = open("output.txt", O_WRONLY);
+	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC);
 	int	fd_t = open("trials.txt", O_WRONLY | O_APPEND);
 	if (fd > 0)
 	{

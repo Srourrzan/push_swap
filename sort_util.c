@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:38:22 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/04 14:40:05 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/04 16:47:46 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,126 +38,17 @@ int	ft_sort_list(t_list **a, t_list **b, int counter, int fd)
 
 int	ft_sort_list_ascend(t_list **a, t_list **b, int counter, int fd)
 {
-	if((*a)->content > (*a)->next->content)
-	{
-		if ((*b) != NULL)
-		{
-			if ((*b)->next != NULL)
-			{
-				if((*b)->content < (*b)->next->content)
-				{
-					ss(a, b);
-					ft_putstr("ss\n", fd);
-					counter++;
-					ft_display_stacks(a, b, fd);
-				}
-				else
-				{
-					swap(a);
-					ft_putstr("sa\n", fd);
-					counter++;
-					ft_display_stacks(a, b, fd);
-				}
-			}
-		}
-		else
-		{
-			swap(a);
-			ft_putstr("sa\n", fd);
-			counter++;
-			ft_display_stacks(a, b, fd);
-		}	
-	}
-	push(a, b);
-	ft_putstr("pa\n", fd);
-	counter++;
-	ft_display_stacks(a, b, fd);
-	if ((*b)->next != NULL)
-	{
-		if((*b)->content < (*b)->next->content)
-		{
-			if((*a)->next != NULL)
-			{
-				if((*a)->content > (*a)->next->content)
-				{
-					ss(a, b);
-					ft_putstr("\nss\n", fd);
-					counter++;
-					ft_display_stacks(a, b, fd);
-				}
-				else
-				{
-					swap(b);
-					ft_putstr("sb\n", fd);
-					counter++;
-					ft_display_stacks(a, b, fd);
-				}
-			}
-			else
-			{
-				swap(b);
-				ft_putstr("sb\n", fd);
-				counter++;
-				ft_display_stacks(a, b, fd);
-			}
-		}
-	}
-	return counter++;
+	counter = ft_ascend_swap(a, b, counter, fd);
+	counter = ft_ascend_push(a, b, counter, fd);
+	counter = ft_decscend_swap(a, b, counter, fd);
+	return counter;
 }
 
 int	ft_sort_list_descend(t_list **b, t_list **a, int counter, int fd)
 {
-	if((*b)->content < (*b)->next->content)
-	{
-		if ((*a)->next != NULL)
-		{
-			if((*a)->content > (*a)->next->content)
-			{
-				ss(a, b);
-				ft_putstr("ss\n", fd);
-				counter++;
-				ft_display_stacks(a, b, fd);
-			}
-			else
-			{
-				swap(b);
-				ft_putstr("sb\n", fd);
-				counter++;
-				ft_display_stacks(a, b, fd);
-			}
-		}
-		else
-		{
-			swap(b);
-			ft_putstr("sb\n", fd);
-			counter++;
-			ft_display_stacks(a, b, fd);
-		}
-	}
-	push(b, a);
-	ft_putstr("pb\n", fd);
-	counter++;
-	ft_display_stacks(a, b, fd);
-	if ((*a)->next != NULL)
-	{
-		if((*a)->content > (*a)->next->content)
-		{
-			if ((*b)->content < (*b)->next->content)
-			{
-				ss(a, b);
-				ft_putstr("ss\n", fd);
-				counter++;
-				ft_display_stacks(a, b, fd);
-			}
-			else
-			{
-				swap(a);
-				ft_putstr("sa\n", fd);
-				counter++;
-				ft_display_stacks(a, b, fd);
-			}
-		}
-	}
+	counter = ft_decscend_swap(a, b, counter, fd);
+	counter = ft_descend_push(a, b, counter, fd);
+	counter = ft_ascend_swap(a, b, counter, fd);
 	return counter;
 }
 

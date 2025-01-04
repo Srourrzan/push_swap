@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:49:40 by rsrour            #+#    #+#             */
-/*   Updated: 2024/12/14 15:47:43 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/04 16:37:12 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,61 @@ void	ss(t_list **root_a, t_list **root_b)
 {
 	swap(root_a);
 	swap(root_b);
+}
+
+int    ft_ascend_swap(t_list **a, t_list **b, int counter, int fd)
+{
+    if(((*a)->next != NULL) && ((*a)->content > (*a)->next->content))
+	{
+		if ((*b) != NULL)
+		{
+			if ((*b)->next != NULL)
+			{
+				if((*b)->content < (*b)->next->content)
+				{
+					ss(a, b);
+					ft_putstr("ss\n", fd);
+					counter++;
+					ft_display_stacks(a, b, fd);
+				}
+				else
+				{
+					swap(a);
+					ft_putstr("sa\n", fd);
+					counter++;
+					ft_display_stacks(a, b, fd);
+				}
+			}
+		}
+		else
+		{
+			swap(a);
+			ft_putstr("sa\n", fd);
+			counter++;
+			ft_display_stacks(a, b, fd);
+		}	
+	}
+	return counter;
+}
+
+int		ft_decscend_swap(t_list ** a, t_list **b, int counter, int fd)
+{
+	if ((*b)->next != NULL && (*b)->content < (*b)->next->content)
+	{
+		if((*a)->next != NULL && ((*a)->content > (*a)->next->content))
+		{
+			ss(a, b);
+			ft_putstr("\nss\n", fd);
+			counter++;
+			ft_display_stacks(a, b, fd);
+		}
+		else
+		{
+			swap(b);
+			ft_putstr("sb\n", fd);
+			counter++;
+			ft_display_stacks(a, b, fd);
+		}
+	}
+	return counter;
 }

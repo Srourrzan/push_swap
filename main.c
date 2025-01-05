@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:52 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/04 16:06:49 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/04 20:34:43 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	main(int argc, char **argv)
 		printf("failed: file descriptor: %d\n", fd);
 	if (fd_t)
 	{
-		ft_putstr("number of argc: ", fd_t);
+		ft_putstr(" argc: ", fd_t);
 		ft_putnbr(argc-1, fd_t);
-		ft_putstr(" number of operations: ", fd_t);
+		ft_putstr(" operations: ", fd_t);
 		ft_putnbr(counter, fd_t);
 		ft_putstr("\n", fd_t);
 	}

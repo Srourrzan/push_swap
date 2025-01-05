@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:38:22 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/05 19:32:43 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/05 19:33:53 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ int	ft_sort_list(t_list **a, t_list **b, int counter, int fd)
 	ft_putnbr(push_count, fd+1);
 	return counter;
 }
-// create counter to count how many times you shuffle between stacks, so you can compare performance
-// create ft_descend_reverse_rotate function
-// insert ft_ascend_reverse_rotate function inside the ft_sort_list_descend
-// insert ft_descend_reverse_rotate function inside both sorting functions
+
 int	ft_sort_list_ascend(t_list **a, t_list **b, int counter, int fd)
 {
 	counter = ft_ascend_reverse_rotate(a, b, counter, fd);

@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:38:22 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/08 14:52:55 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/08 19:08:37 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	ft_sort_list(t_list **a, t_list **b, int counter, int fd)
 			ft_putstr("pa\n", fd);
 			counter++;
 			ft_display_stacks(a, b, fd);
+			push_count++;
 		}
-		push_count++;
 	}
 	ft_putstr("pushs: ", fd+1);
 	ft_putnbr(push_count, fd+1);
@@ -46,7 +46,7 @@ int	ft_sort_list(t_list **a, t_list **b, int counter, int fd)
 
 int	ft_sort_list_ascend(t_list **a, t_list **b, int counter, int fd)
 {
-	//counter = ft_ascend_reverse_rotate(a, b, counter, fd);
+	counter = ft_ascend_reverse_rotate(a, b, counter, fd);
 	counter = ft_ascend_swap(a, b, counter, fd);
 	if (!ft_ascend_check(a))
 	{
@@ -60,6 +60,7 @@ int	ft_sort_list_descend(t_list **b, t_list **a, int counter, int fd)
 {
 	if (*b)
 	{
+		counter = ft_dascend_rotate(a, b, counter, fd);
 		counter = ft_decscend_swap(a, b, counter, fd);
 		counter = ft_descend_push(a, b, counter, fd);
 		counter = ft_ascend_swap(a, b, counter, fd);
@@ -92,7 +93,6 @@ int	ft_descend_check(t_list **b)
 	curr = *b;
 	if (curr == NULL )
 		return (1);
-	return (1);
 	if (!curr->next)
 		return (1);
 	while (curr->next != NULL)

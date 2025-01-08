@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:38:22 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/05 19:59:07 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/08 14:52:55 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int	ft_sort_list(t_list **a, t_list **b, int counter, int fd)
 			counter = ft_sort_list_descend(b, a, counter, fd);
 			push_count++;
 		}
-	}
-	if(ft_ascend_check(a) && ft_descend_check(b))
-	{
 		while ((*b) != NULL)
 		{
 			push(b, a);
@@ -49,18 +46,24 @@ int	ft_sort_list(t_list **a, t_list **b, int counter, int fd)
 
 int	ft_sort_list_ascend(t_list **a, t_list **b, int counter, int fd)
 {
-	counter = ft_ascend_reverse_rotate(a, b, counter, fd);
+	//counter = ft_ascend_reverse_rotate(a, b, counter, fd);
 	counter = ft_ascend_swap(a, b, counter, fd);
-	counter = ft_ascend_push(a, b, counter, fd);
-	counter = ft_decscend_swap(a, b, counter, fd);
+	if (!ft_ascend_check(a))
+	{
+		counter = ft_ascend_push(a, b, counter, fd);
+		counter = ft_decscend_swap(a, b, counter, fd);
+	}
 	return counter;
 }
 
 int	ft_sort_list_descend(t_list **b, t_list **a, int counter, int fd)
 {
-	counter = ft_decscend_swap(a, b, counter, fd);
-	counter = ft_descend_push(a, b, counter, fd);
-	counter = ft_ascend_swap(a, b, counter, fd);
+	if (*b)
+	{
+		counter = ft_decscend_swap(a, b, counter, fd);
+		counter = ft_descend_push(a, b, counter, fd);
+		counter = ft_ascend_swap(a, b, counter, fd);
+	}
 	return counter;
 }
 
@@ -69,6 +72,8 @@ int	ft_ascend_check(t_list **a)
 	t_list	*curr;
 
 	curr = *a;
+	if (curr == NULL )
+		return (1);
 	if (!curr->next)
 		return (1);
 	while (curr->next != NULL)
@@ -85,6 +90,9 @@ int	ft_descend_check(t_list **b)
 	t_list	*curr;
 
 	curr = *b;
+	if (curr == NULL )
+		return (1);
+	return (1);
 	if (!curr->next)
 		return (1);
 	while (curr->next != NULL)

@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:02:20 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/04 20:25:30 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/07 22:05:24 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 void	push(t_list **src_list, t_list **dst_list)
 {
 	t_list	*temp;
-
+	
 	if (!src_list || !(*src_list))
 		return ;
 	temp = *src_list;

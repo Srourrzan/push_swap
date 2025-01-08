@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:49:40 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/04 16:37:12 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/07 22:04:41 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int		ft_decscend_swap(t_list ** a, t_list **b, int counter, int fd)
 {
 	if ((*b)->next != NULL && (*b)->content < (*b)->next->content)
 	{
-		if((*a)->next != NULL && ((*a)->content > (*a)->next->content))
+		if(((*a) != NULL) && (*a)->next != NULL && ((*a)->content > (*a)->next->content))
 		{
 			ss(a, b);
 			ft_putstr("\nss\n", fd);

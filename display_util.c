@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 10:14:19 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/04 14:35:26 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/07 21:11:48 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,19 +104,22 @@ void	ft_correct_space_display(t_list *node, int fd)
 	
 	len = 0;
 	iter = 0;
-	number = node->content;
-	if (snumber != node->content || (node->next != NULL))
+	if (node)
 	{
-		snumber = number;
-		if (number < 0)
+		number = node->content;
+		if (snumber != node->content || (node->next != NULL))
 		{
-			number = number * -1;
-			len++;
-		}
-		while (number > 0)
-		{
-			number /= 10;
-			len++;
+			snumber = number;
+			if (number < 0)
+			{
+				number = number * -1;
+				len++;
+			}
+			while (number > 0)
+			{
+				number /= 10;
+				len++;
+			}
 		}
 	}
 	while (iter < (13 - len))

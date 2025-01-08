@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 11:35:36 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/07 20:01:59 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/01/08 22:28:19 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,10 @@ int 	ft_ascend_reverse_rotate(t_list **a, t_list **b, int counter, int fd)
 		}
 		while (last_a->next != NULL)
 			last_a = last_a->next;
-		while (last_b->next != NULL)
+		ft_putstr("before?\n", fd);
+		while ((*b) && last_b->next != NULL)
 			last_b = last_b->next;
+		ft_putstr("after?\n", fd);
 	}
 	return counter;
 }

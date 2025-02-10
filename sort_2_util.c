@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:12:40 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/08 22:25:32 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/02/10 21:31:00 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int    ft_split_stack(t_list **stack_a, t_list **stack_b, int counter, int fd)
         iter++;
     }
     prev->next = NULL;
-    ft_putstr("Is before\n", fd);
     counter = ft_ascend_reverse_rotate(stack_a, stack_b, counter, fd);
 	counter = ft_ascend_swap(stack_a, stack_b, counter, fd);
     counter = ft_ascend_reverse_rotate(&half, stack_b, counter, fd);

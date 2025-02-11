@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:38:22 by rsrour            #+#    #+#             */
-/*   Updated: 2025/02/11 18:13:32 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/02/11 20:03:22 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ int	ft_sort_list(t_list **a, t_list **b, int counter, int fd)
 
 int	ft_sort_list_ascend(t_list **a, t_list **b, int counter, int fd)
 {
-	ft_putstr("Splitting===================\n", fd);
-	counter = ft_split_stack(a, counter, fd);
-	ft_putstr("Merged back=================\n", fd);
-	ft_display_stacks(a, b, fd);
+	// ft_putstr("Splitting===================\n", fd);
+	// counter = ft_split_stack(a, counter, fd);
+	// ft_putstr("Merged back=================\n", fd);
+	// ft_display_stacks(a, b, fd);
 	counter = ft_ascend_reverse_rotate(a, b, counter, fd);
 	counter = ft_ascend_swap(a, b, counter, fd);
 	if (!ft_ascend_check(a))

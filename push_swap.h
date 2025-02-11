@@ -6,7 +6,7 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:58 by rsrour            #+#    #+#             */
-/*   Updated: 2025/01/08 22:07:05 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/02/11 00:21:46 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int					ft_descend_check(t_list **b);
 int					ft_sort_list_ascend(t_list **a, t_list **b, int counter, int fd);
 int					ft_sort_list_descend(t_list **b, t_list **a, int counter, int fd);
 
-int    ft_split_stack(t_list **stack_a, t_list **stack_b, int counter, int fd);
-void     ft_merge_stack(t_list **stack_1, t_list **stack_2, int fd);
+int    ft_split_stack(t_list **stack_a, int counter, int fd);
+t_list    *ft_merge_stack(t_list **stack_1, t_list **stack_2, int fd);
 
 #endif

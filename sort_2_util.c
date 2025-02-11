@@ -6,67 +6,62 @@
 /*   By: rsrour <rsrour@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:12:40 by rsrour            #+#    #+#             */
-/*   Updated: 2025/02/10 21:31:00 by rsrour           ###   ########.fr       */
+/*   Updated: 2025/02/11 00:22:01 by rsrour           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    ft_split_stack(t_list **stack_a, t_list **stack_b, int counter, int fd)
+int    ft_split_stack(t_list **stack_a, int counter, int fd)
 {
     int     len;
     int     iter;
     t_list  *half;
     t_list  *prev;
+    t_list  *temp;
     
     iter = 0;
-    prev = *stack_a;
+    temp = *stack_a;
     half = *stack_a;
+    prev = temp;
     len = len_list(stack_a);
-    while(iter <= len / 2)
+    while(iter < (len / 2) )
     {
-        prev = half;
+        temp = half;
         half = half->next;
         iter++;
     }
-    prev->next = NULL;
-    counter = ft_ascend_reverse_rotate(stack_a, stack_b, counter, fd);
-	counter = ft_ascend_swap(stack_a, stack_b, counter, fd);
-    counter = ft_ascend_reverse_rotate(&half, stack_b, counter, fd);
-	counter = ft_ascend_swap(&half, stack_b, counter, fd);
-    ft_merge_stack(stack_a, &half, fd);
+    temp->next = NULL;
+    ft_display_stacks(&prev, &half, fd);
+    counter = ft_ascend_reverse_rotate(&prev, &half, counter, fd);
+	counter = ft_ascend_swap(&prev, &half, counter, fd);
+    counter = ft_ascend_reverse_rotate(&prev, &half, counter, fd);
+	counter = ft_ascend_swap(&prev, &half, counter, fd);
+    ft_putstr("merging\n", fd);
+    *stack_a = ft_merge_stack(&prev, &half, fd);
     return counter;
 }
 
-void     ft_merge_stack(t_list **stack_1, t_list **stack_2, int fd)
+t_list     *ft_merge_stack(t_list **stack_1, t_list **stack_2, int fd)
 {
     t_list  *curr_1;
     t_list  *curr_2;
     t_list  *temp;
-    t_list  *head;
     
-    temp = create_node(0);
-    head = temp;
+    temp = *stack_1;
     curr_1 = *stack_1;
     curr_2 = *stack_2;
-    while(curr_1 && curr_2)
+    while(curr_1->next != NULL)
+        curr_1 = curr_1->next;
+    curr_1->next = curr_2;
+    *stack_1 = temp;
+    ft_putstr("Displaying after merging\n", fd);
+    curr_1 = *stack_1;
+    while (curr_1 != NULL)
     {
-        if (curr_1->content < curr_2->content)
-        {
-            head->next = curr_1;
-            curr_1 = curr_1->next;
-        }
-        else
-        {
-            head->next = curr_2;
-            curr_2 = curr_2->next;
-        }
-        head = head->next;
+		ft_putnbr(curr_1->content, fd);
+		ft_putchar('\n', fd);
+		curr_1 = curr_1->next;
     }
-    if(curr_1)
-        head->next = curr_1;
-    if(curr_2)
-        head->next = curr_2;
-    *stack_1 = temp->next;
-    ft_display_stack(stack_1, 'a', fd);
+    return (*stack_1);
 }

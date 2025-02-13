@@ -43,36 +43,34 @@ void	ss(t_list **root_a, t_list **root_b)
 
 int    ft_ascend_swap(t_list **a, t_list **b, int counter, int fd)
 {
-    if(((*a)->next != NULL) && ((*a)->content > (*a)->next->content))
+	t_status	*status;
+
+	status = malloc(sizeof(t_status));
+	if (!status)
+		return (counter);
+	status->status_1 = ((*a)->next != NULL) && ((*a)->content > (*a)->next->content);
+	status->status_2 = (*b) != NULL && ((*b)->next != NULL) && ((*b)->content < (*b)->next->content);
+    if(status->status_1)
 	{
-		if ((*b) != NULL)
+		if (status->status_1 && status->status_2)
 		{
-			if ((*b)->next != NULL)
-			{
-				if((*b)->content < (*b)->next->content)
-				{
-					ss(a, b);
-					ft_putstr("ss\n", fd);
-					counter++;
-					ft_display_stacks(a, b, fd);
-				}
-				else
-				{
-					swap(a);
-					ft_putstr("sa\n", fd);
-					counter++;
-					ft_display_stacks(a, b, fd);
-				}
-			}
+			ss(a, b);
+			ft_putstr("ss\n", fd);
 		}
-		else
+		else if (status->status_1)
 		{
 			swap(a);
 			ft_putstr("sa\n", fd);
-			counter++;
-			ft_display_stacks(a, b, fd);
-		}	
+		}
+		else if (status->status_2)
+		{
+			swap(b);
+			ft_putstr("sb\n", fd);
+		}
+		counter++;
+		ft_display_stacks(a, b, fd);
 	}
+	free(status);
 	return counter;
 }
 

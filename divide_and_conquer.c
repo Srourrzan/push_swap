@@ -33,9 +33,9 @@ int    ft_split_stack(t_list **stack_a, int counter, int fd)
     }
     temp->next = NULL;
     ft_display_stacks(&prev, &half, fd);
-    counter = ft_ascend_reverse_rotate(&prev, &half, counter, fd);
+    counter = ft_ascend_rr_splited_stack(&prev, &half, counter, fd);
 	counter = ft_ascend_swap(&prev, &half, counter, fd);
-    counter = ft_ascend_reverse_rotate(&prev, &half, counter, fd);
+    counter = ft_ascend_rr_splited_stack(&prev, &half, counter, fd);
 	counter = ft_ascend_swap(&prev, &half, counter, fd);
     ft_putstr("merging\n", fd);
     *stack_a = ft_merge_stack(&prev, &half, fd);

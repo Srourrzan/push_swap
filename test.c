@@ -4,36 +4,82 @@ int 	ft_ascend_rr_splited_stack(t_list **head, t_list **midd, int counter, int f
 {
 	t_list		*last_a;
 	t_list		*last_b;
+	t_status	*status;
 
-	last_a = *a;
-	if ((*b) != NULL)
+	last_a = *head;
+	if ((*midd) != NULL)
 	{
-		last_b = *b;
+		last_b = *midd;
 		while (last_b->next != NULL)
 			last_b = last_b->next;
 	}
 	while (last_a->next != NULL)
 		last_a = last_a->next;
-	while (last_a->content < (*a)->content)
+	status->status_1 = last_a->content < (*head)->content;
+	status->status_2 = (*midd) && (last_b->content < (*midd)->content);
+	while (status->status_1 || status->status_2)
 	{
-		if ((*b) && (last_b->content > (*b)->content))
+		if (status->status_1 && status->status_2)
 		{
-			rrr(a, b);
+			rrr(head, midd);
 			ft_putstr("rrr\n", fd);
-			counter++;
-			ft_display_stacks(a, b, fd);
+		}
+		else if (status->status_1)
+		{
+			reverse_rotate(head);
+			ft_putstr("rra\n", fd);
 		}
 		else
 		{
-			reverse_rotate(a);
+			reverse_rotate(midd);
 			ft_putstr("rra\n", fd);
-			counter++;
-			ft_display_stacks(a, b, fd);
 		}
+		counter++;
+		ft_display_stacks(head, midd, fd);
 		while (last_a->next != NULL)
 			last_a = last_a->next;
-		while ((*b) && last_b->next != NULL)
+		while ((*midd) && last_b->next != NULL)
 			last_b = last_b->next;
+		status->status_1 = last_a->content < (*head)->content;
+		status->status_2 = (*midd) && (last_b->content < (*midd)->content);
+	}
+	return counter;
+}
+
+int    ft_ascend_swap_splitted_stack(t_list **head, t_list **midd, int counter, int fd)
+{
+	t_status	*status;
+
+
+    if(((*a)->next != NULL) && ((*a)->content > (*a)->next->content))
+	{
+		if ((*b) != NULL)
+		{
+			if ((*b)->next != NULL)
+			{
+				if((*b)->content < (*b)->next->content)
+				{
+					ss(a, b);
+					ft_putstr("ss\n", fd);
+					counter++;
+					ft_display_stacks(a, b, fd);
+				}
+				else
+				{
+					swap(a);
+					ft_putstr("sa\n", fd);
+					counter++;
+					ft_display_stacks(a, b, fd);
+				}
+			}
+		}
+		else
+		{
+			swap(a);
+			ft_putstr("sa\n", fd);
+			counter++;
+			ft_display_stacks(a, b, fd);
+		}	
 	}
 	return counter;
 }

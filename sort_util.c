@@ -46,10 +46,6 @@ int	ft_sort_list(t_list **a, t_list **b, int counter, int fd)
 
 int	ft_sort_list_ascend(t_list **a, t_list **b, int counter, int fd)
 {
-	// ft_putstr("Splitting===================\n", fd);
-	// counter = ft_split_stack(a, counter, fd);
-	// ft_putstr("Merged back=================\n", fd);
-	// ft_display_stacks(a, b, fd);
 	counter = ft_ascend_reverse_rotate(a, b, counter, fd);
 	counter = ft_ascend_swap(a, b, counter, fd);
 	if (!ft_ascend_check(a))

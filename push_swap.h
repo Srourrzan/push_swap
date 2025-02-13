@@ -24,6 +24,12 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct	s_status
+{
+	int				status_1;
+	int				status_2;
+}				t_status;
+
 t_list				*create_node(int content);
 void				insert_node_back(t_list **root, int content);
 void				insert_node_front(t_list **root, int content);
@@ -72,5 +78,8 @@ int					ft_sort_list_descend(t_list **b, t_list **a, int counter, int fd);
 
 int    ft_split_stack(t_list **stack_a, int counter, int fd);
 t_list    *ft_merge_stack(t_list **stack_1, t_list **stack_2, int fd);
+
+//divide methods
+//int 	ft_ascend_rr_splited_stack(t_list **head, t_list **midd, int counter, int fd);
 
 #endif
